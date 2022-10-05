@@ -6,7 +6,7 @@ new Vue({
     },
     methods : {
         result : function(){
-            console.log("method calisti...")
+            console.log( "method calisti...")
             return this.counter > 10 ? "10'dan buyuktur" : "10'dan kucuktur";
         }
     },
