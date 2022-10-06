@@ -1,0 +1,16 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<link rel="stylesheet" href = "style.css">
+
+<div id="app">
+
+<div @click = "attachedClass = !attachedClass" 
+:class = "{ yellow : attachedClass, blue : !attachedClass}" 
+class="box"></div>
+  
+<div class="box" @click = "attachedClass = !attachedClass" 
+:class = "divClass" ></div> //class ları bind etmenin kısa yolu
+
+<div class="box"></div>
+
+</div>
+<script src="app.js"></script>
