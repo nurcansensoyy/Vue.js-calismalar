@@ -2,7 +2,20 @@
 
 <div id="app">
     <ul>
-        <li v-for ="product in products">{{product}}</li>
+        <li v-for ="(product,index) in products">{{product}} - {{index}}</li>
+    </ul>
+
+    <template v-for ="(product,index) in products"> {{product}} - {{index}}
+        <h3>{{product}}</h3>
+        <p>{{index}}</p>
+    </template>
+
+    <ul>
+        <li v-for = "personel in persons">{{personel}}
+        <ul>
+            <li v-for="item in personel">{{item}}</li>
+        </ul>
+    </li>
     </ul>
     
 </div>
