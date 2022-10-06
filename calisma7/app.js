@@ -2,7 +2,8 @@
 new Vue({
     el : "#app",
     data : {
-        attachedClass : false
+        attachedClass : false,
+        color : "green"
     },
     computed :{
         divClass : function(){

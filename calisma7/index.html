@@ -8,9 +8,13 @@
 class="box"></div>
   
 <div class="box" @click = "attachedClass = !attachedClass" 
-:class = "divClass" ></div> //class ları bind etmenin kısa yolu
-
-<div class="box"></div>
-
+:class = "divClass" ></div> 
+<!--class ları bind etmenin kısa yolu
+!-->
+<div class="box" :class ="[color, {yellow : attachedClass}]"></div>
+<hr>
+<input type="text" v-model="color">
 </div>
+
+
 <script src="app.js"></script>
