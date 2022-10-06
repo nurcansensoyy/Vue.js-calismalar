@@ -12,8 +12,18 @@ class="box"></div>
 <!--class ları bind etmenin kısa yolu
 !-->
 <div class="box" :class ="[color, {yellow : attachedClass}]"></div>
+<!--array islemleri-->
 <hr>
 <input type="text" v-model="color">
+
+<div class ="box" :style = "{'background-color' : color}"></div>
+<!--'background-color' yazmalıyız ya da aradaki - yi kaldırıp C yi büyütmeliyiz backgroundColor gibi-->
+<div class ="box" :style = "customStyle"></div>
+<div class ="box"></div>
+
+<hr>
+<input type="text" v-model="color">
+<input type="text" v-model="height">
 </div>
 
 
