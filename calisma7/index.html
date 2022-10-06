@@ -19,11 +19,11 @@ class="box"></div>
 <div class ="box" :style = "{'background-color' : color}"></div>
 <!--'background-color' yazmalıyız ya da aradaki - yi kaldırıp C yi büyütmeliyiz backgroundColor gibi-->
 <div class ="box" :style = "customStyle"></div>
-<div class ="box"></div>
+<div class ="box" :style="[customStyle,{width : yukseklik + 'px'}]"></div>
 
 <hr>
 <input type="text" v-model="color">
-<input type="text" v-model="height">
+<input type="text" v-model="yukseklik">
 </div>
 
 

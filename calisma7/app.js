@@ -4,7 +4,7 @@ new Vue({
     data : {
         attachedClass : false,
         color : "green",
-        height : 100
+        yukseklik : 100
     },
     computed :{
         divClass : function(){
@@ -16,7 +16,7 @@ new Vue({
         customStyle : function(){
             return {
                 backgroundColor : this.color,
-                height : this.height +"px"
+                height : this.yukseklik +"px"
             }
         }
     }
