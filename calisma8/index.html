@@ -1,0 +1,13 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> 
+
+<div id="app">
+    <p v-if = "show">Beni görebilirsin </p>
+    <p v-else>Beni görebilir misin acaba? </p>
+    <button @click = "show = !show">Goster/Gizle</button>
+
+    <p v-if = "sayi > 10">10'dan buyuktur</p>
+    <p v-else-if="sayi < 10">10'dan kucuktur</p>
+    <p v-else > 10'esittir</p>
+    
+</div>
+<script src="app.js"></script>
