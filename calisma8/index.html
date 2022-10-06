@@ -8,6 +8,15 @@
     <p v-if = "sayi > 10">10'dan buyuktur</p>
     <p v-else-if="sayi < 10">10'dan kucuktur</p>
     <p v-else > 10'esittir</p>
+
+    <hr>
+
+    <button @click = "showParagh = !showParagh">Goster</button>
+
+    <p v-show = "showParagh">Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+        Earum vitae esse excepturi quasi? Rem ullam ea nam alias doloribus dolores esse recusandae,
+        culpa accusantium dolor! Illo eos at veniam expedita.</p>
+        <!-- v-show içeriğin tamamen dom dan silinmesini değil gizlenmesini sağlar-->
     
 </div>
 <script src="app.js"></script>
