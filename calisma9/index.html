@@ -11,11 +11,15 @@
     </template>
 
     <ul>
-        <li v-for = "personel in persons">{{personel}}
-        <ul>
-            <li v-for="item in personel">{{item}}</li>
-        </ul>
-    </li>
+        <li v-for = "personel in persons">
+            <ul>
+
+                <li v-for = "(value,key,index) in personel"> <strong>{{key}}</strong> : {{value}} : {{index}}</li>
+
+            </ul>
+       
+
+        </li>
     </ul>
     
 </div>

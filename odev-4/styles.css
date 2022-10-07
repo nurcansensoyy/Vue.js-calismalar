@@ -3,6 +3,13 @@
   height: 100px;
   border: 1px solid black;
 }
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: gray;
+  display:inline-block;
+  margin-right:  5px;
+}
 
 .highlight {
   background-color: red;
@@ -12,4 +19,13 @@
 .shrink {
   background-color: gray;
   width: 50px !important;
+}
+.blue {
+  background-color: blue;
+}
+.pink{
+  background-color: pink;
+}
+.purple{
+  background-color: purple;
 }
