@@ -2,9 +2,12 @@
 
 <div id="app">
     <ul>
-        <li v-for ="(product,index) in products">{{product}} - {{index}}</li>
+        <li v-for ="(product,index) in products" :key = "product">{{product}} - {{index}}</li>
+        <!-- :key = "product" yapınca listede bir şeylerin sırası değiştirildiğinde indexlerin numarası değil objelerin yerini değiştirir-->
     </ul>
+    <button @click="products.push('Hoparlör')">Ekle</button>
 
+    <hr>
     <template v-for ="(product,index) in products"> {{product}} - {{index}}
         <h3>{{product}}</h3>
         <p>{{index}}</p>
