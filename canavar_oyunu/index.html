@@ -47,8 +47,11 @@
     <section class="row log" v-if = "game_is_on">
         <div class="small-12 columns">
             <ul>
-                <li v-for = "log in logs">
-                    {{log.text}} <!-- log içerisindeki text i yazdırdık-->
+                <li
+                :class ="{'player-turn' : log.turn == 'p' , 'monster-turn' :  log.turn =='m' }"
+                v-for = "log in logs">
+                
+                {{log.text}} <!-- log içerisindeki text i yazdırdık-->
                 </li>
             </ul>
         </div>
