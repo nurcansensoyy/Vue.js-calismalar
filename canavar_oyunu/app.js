@@ -43,10 +43,11 @@ new Vue({
     monster_attack : function() {
         var point = Math.ceil(Math.random()* 15); 
         this.player_heal -= point;
-        this.add_to_log({turn : "m", text : "CANAVAR ATAĞI ("+ point +")"});
+
+        this.add_to_log({turn : "m" ,text : "CANAVAR ATAĞI ("+ point +")"});
     },
     add_to_log : function(log){
-        this.log.push(log);
+        this.logs.push(log); //logs array inin içine log objelerini pushladık.
     }
    },
    watch : { //watch ile canlarını kontrol ettik
