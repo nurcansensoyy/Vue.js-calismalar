@@ -14,11 +14,15 @@ new Vue({
         //this.monster_heal = this.monster_heal - point;
         this.monster_heal -= point;
 
+        this.add_to_log({turn : "p", text : "OYUNCU ATAĞI ("+ point +")"});
+
         this.monster_attack(); //oyuncu her saldırdığında monster da ona saldırmalı.
     },
     special_attack : function(){
         var point = Math.ceil(Math.random()* 25);  // 25 yaptıkdaha güçlü saldırı olması için.
         this.monster_heal -= point;
+
+        this.add_to_log({turn : "p", text : "ÖZEL OYUNCU ATAĞI ("+ point +")"});
 
         this.monster_attack();
     },
@@ -26,14 +30,22 @@ new Vue({
         var point = Math.ceil(Math.random()* 20); //math.ceil ile virgülsüz değer alırız 
         //this.monster_heal = this.monster_heal - point;
         this.player_heal += point;
+
+        this.add_to_log({turn : "p", text : "İLK YARDIM ("+ point +")"});
+
         this.monster_attack();
     },
     give_up : function(){ //PES ET
         this.player_heal = 0;
+        this.add_to_log({turn : "p", text : "OYUNCU PES ETTİ!!"});
     },
     monster_attack : function() {
         var point = Math.ceil(Math.random()* 15); 
         this.player_heal -= point;
+        this.add_to_log({turn : "m", text : "CANAVAR ATAĞI ("+ point +")"});
+    },
+    add_to_log : function(log){
+        this.log.push(log);
     }
    },
    watch : { //watch ile canlarını kontrol ettik
