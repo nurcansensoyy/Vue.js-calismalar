@@ -36,11 +36,16 @@ new Vue({
         this.player_heal -= point;
     }
    },
-   watch : {
+   watch : { //watch ile canlarını kontrol ettik
 
     player_heal : function(value){ //value burada player_heal ın aktif değişen değeridir 3 se3 5 se 5 
         if (this.player_heal <= 0){
             this.player_heal = 0;
+            
+            if(confirm("Oyunu KAYBETTİN. Tekrar denemek ister misin?")){
+                this.player_heal = 100;
+                this.monster_heal = 100;
+            }
         }
         else if(this.player_heal >= 100){
             this.player_heal = 100;
@@ -50,6 +55,12 @@ new Vue({
     monster_heal : function(value){ //value burada monster_heal ın aktif değişen değeridir 3 se3 5 se 5 
         if (this.monster_heal <= 0){
             this.monster_heal= 0;
+
+            if(confirm("Oyunu KAZANDIN. Tekrar denemek ister misin?")){
+                this.player_heal = 100;
+                this.monster_heal = 100;
+            }
+            
         }
    },
    }
