@@ -50,7 +50,7 @@
                 <li
                 :class ="{'player-turn' : log.turn == 'p' , 'monster-turn' :  log.turn =='m' }"
                 v-for = "log in logs">
-                
+                <!-- class binding-->
                 {{log.text}} <!-- log içerisindeki text i yazdırdık-->
                 </li>
             </ul>

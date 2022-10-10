@@ -59,6 +59,7 @@ new Vue({
             if(confirm("Oyunu KAYBETTİN. Tekrar denemek ister misin?")){
                 this.player_heal = 100;
                 this.monster_heal = 100;
+                this.logs = [];
             }
         }
         else if(this.player_heal >= 100){
@@ -73,6 +74,7 @@ new Vue({
             if(confirm("Oyunu KAZANDIN. Tekrar denemek ister misin?")){
                 this.player_heal = 100;
                 this.monster_heal = 100;
+                this.logs = [];
             }
             
         }
