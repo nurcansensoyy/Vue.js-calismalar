@@ -4,6 +4,7 @@ new Vue({
     player_heal : 100,
     monster_heal : 100,
     game_is_on : false,
+    logs : [],
    },
    methods : {
     start_game : function(){
