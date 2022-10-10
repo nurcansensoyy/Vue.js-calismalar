@@ -19,14 +19,13 @@ new Vue({
     special_attack : function(){
         var point = Math.ceil(Math.random()* 25);  // 25 yaptıkdaha güçlü saldırı olması için.
         this.monster_heal -= point;
-        
+
         this.monster_attack();
     },
     heal_up : function(){ //İLK YARDIM
         var point = Math.ceil(Math.random()* 20); //math.ceil ile virgülsüz değer alırız 
         //this.monster_heal = this.monster_heal - point;
         this.player_heal += point;
-
         this.monster_attack();
     },
     give_up : function(){ //PES ET
