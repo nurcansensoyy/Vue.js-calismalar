@@ -35,5 +35,22 @@ new Vue({
         var point = Math.ceil(Math.random()* 15); 
         this.player_heal -= point;
     }
-   }  
+   },
+   watch : {
+
+    player_heal : function(value){ //value burada player_heal ın aktif değişen değeridir 3 se3 5 se 5 
+        if (this.player_heal <= 0){
+            this.player_heal = 0;
+        }
+        else if(this.player_heal >= 100){
+            this.player_heal = 100;
+        }
+    },
+
+    monster_heal : function(value){ //value burada monster_heal ın aktif değişen değeridir 3 se3 5 se 5 
+        if (this.monster_heal <= 0){
+            this.monster_heal= 0;
+        }
+   },
+   }
 });
