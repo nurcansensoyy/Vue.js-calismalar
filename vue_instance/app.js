@@ -46,4 +46,8 @@ var vm3 = new Vue ({
     //kontrol altına aldığımız bloğun içerisindeki html yapısını belirtiriz
 });
 
-vm3.$mount("#app3");
+vm3.$mount("#app3"); // mount edince template oluşur içinde app3 yazmasa bile
+
+// vm3.$mount();
+//document.getElementById('app3').appendChild(vm3.$el);
+//yukarıda mount un içinde app yazılmadan template mount edebilme (yükleme) yolu gösterildi. 
