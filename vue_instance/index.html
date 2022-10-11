@@ -2,12 +2,13 @@
 
 <div id="app1">
   <h1 ref="heading">{{ title }}</h1>
-  <button v-on:click="show">Paragrafı Göster</button>
+  <button v-on:click="show" ref="myButton">Paragrafı Göster</button>
   <p v-if="showParagraph">Her zaman göremeyebiliriz!!</p>
 </div>
 
 <div id = "app2">
 <h1 ref ="heading">{{ title }}</h1>
+<button @click="changeTitle">Degistir</button>
 </div>
 
 <script src = "app.js"></script>
