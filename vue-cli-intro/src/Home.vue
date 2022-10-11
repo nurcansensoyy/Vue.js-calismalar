@@ -1,22 +1,14 @@
 <template>
 <div>
-  <p>Lamba Durumu : {{ status }}</p>
-
-   <button @click = "openLamb">Lambayi Ac</button> 
+<lamb-status v-for="lamb in 5" :key="lamb" > </lamb-status>
 </div>
 </template>
 
 <script>
+import LambStatus from "./LambStatus.vue"
 export default {
-    data : function(){
-        return {
-            status : "Kapali"
-        }
-    },
-    methods :{
-        openLamb(){
-            this.status = "Acik"
-        }
+    components :{
+       "lamb-status" : LambStatus
     }
 }
 </script>
