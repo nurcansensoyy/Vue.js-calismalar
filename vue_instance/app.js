@@ -28,8 +28,6 @@ var vm1 = new Vue({
 
 vm1.$mount("#app1");
 
-console.log(vm1);
-console.log(vm1.$data ==data);
 
 var vm2 = new Vue({
     el : "#app2",
@@ -41,4 +39,11 @@ var vm2 = new Vue({
             vm1.title = "instance 2 tarafından değiştirildi";
         }
     }
-})
+});
+
+var vm3 = new Vue ({
+    template : "<h1>Merhabalar...</h1>"
+    //kontrol altına aldığımız bloğun içerisindeki html yapısını belirtiriz
+});
+
+vm3.$mount("#app3");
