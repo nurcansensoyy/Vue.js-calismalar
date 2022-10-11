@@ -1,10 +1,10 @@
 <template>
-  <h1>Merhaba Single File Template</h1>
+  <lamb-component></lamb-component>
 </template>
 
 <script>
 export default {
-  
+ 
 }
 </script>
 
