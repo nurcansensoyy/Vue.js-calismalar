@@ -1,5 +1,5 @@
 var vm1 = new Vue({
-  el: '#app1',
+  
   data: {
     title: 'VueJS Instance',
     showParagraph: false
@@ -26,9 +26,10 @@ var vm1 = new Vue({
   }
 });
 
+vm1.$mount("#app1");
+
 console.log(vm1);
 console.log(vm1.$data ==data);
-vm1.$refs.heading.innerText = "Bu ref tarafından değiştirilmiştir.";
 
 var vm2 = new Vue({
     el : "#app2",
