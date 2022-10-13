@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import Server from "./Server.vue";
+import Server from "./Server";
 
 export default {
   components :{
