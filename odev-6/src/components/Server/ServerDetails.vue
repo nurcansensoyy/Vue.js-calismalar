@@ -10,6 +10,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+  div{
+    border : 2px solid yellow;
+  }
 </style>
