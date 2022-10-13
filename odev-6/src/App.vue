@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     
-    <app-header></app-header>
+    <appHeader></appHeader>
     
 
     <hr>
@@ -18,14 +18,14 @@
 </template>
 
 <script>
-import Header from "./Header.vue";
-import Footer from "./Footer.vue";
-import Servers from "./Servers.vue";
-import ServerDetails from "./ServerDetails.vue";
+import Header from "./components/Common/Header.vue";
+import Footer from "./components/Common/Footer.vue";
+import Servers from "./components/Server/Servers.vue";
+import ServerDetails from "./components/Server/ServerDetails.vue";
 export default {
   components :{
-    "app-header" : Header,
-    "app-footer" : Footer,
+    appHeader : Header, 
+    "app-footer" : Footer, //eger - kullanmazsak isimlendirmede tırnak kullanamamıza gerek yok , yukarıdaki gibi
     "app-servers" : Servers,
     "app-servers-details" : ServerDetails
   }
