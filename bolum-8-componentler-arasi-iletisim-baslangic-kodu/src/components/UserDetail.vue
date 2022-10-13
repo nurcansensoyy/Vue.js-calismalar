@@ -4,18 +4,21 @@
     <p>Ben User.vue isimli Parent Component'in içerisindeki bir Child componentim</p>
     <p>Kullanici adi: {{name}}</p>
     <p>Kullanici adi: {{switchNAme()}}</p>
+    <p>Kullanici yasi : {{age}}</p>
     <button @click="sendToParent">Veriyi parent a gonder</button>
   </div>
 </template>
 
 
 <script>
+import {eventBus} from "../main.js";
 export default {
   props : {
     name : {
-      type : Object,
+      type :String,
       default :"videosinif.com"
-    }
+    },
+    age : Number,
   },//chill parent ilişkisi
   methods : {
     switchNAme(){
@@ -23,7 +26,12 @@ export default {
     },
     sendToParent(){
       this.$emit("data","NurcanSensoy");
-    }
+    },
+    },
+    created(){ //export default seviyesinde
+      eventBus.$on("ageWasEdited",(age) => {
+        this.age = age;
+      }) ;
   }
 }
 </script>

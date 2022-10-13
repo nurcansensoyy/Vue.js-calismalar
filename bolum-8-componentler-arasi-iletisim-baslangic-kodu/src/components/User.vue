@@ -6,8 +6,8 @@
     <p>Child Component Uzerinden gelen veri {{childData}}:</p>
     <hr>
     <div class="row">
-      <app-user-detail @data="childData ='Monitor'" :name = "title"></app-user-detail>
-      <app-user-edit></app-user-edit>
+      <app-user-detail :age="age" @data="childData =$event"  :name = "title"></app-user-detail>
+      <app-user-edit @ageWasEdited="age = $event"  :age="age"></app-user-edit>
     </div>
   </div>
 </template>
@@ -22,7 +22,8 @@
     data : function(){
       return{
         title : "Nurcan",
-        childData : ""
+        childData : "",
+        age : 22,
 
       }
 
