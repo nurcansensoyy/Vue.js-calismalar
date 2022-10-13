@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     
-    <appHeader></appHeader>
+    <app-header></app-header>
     
 
     <hr>
@@ -25,7 +25,7 @@ import ServerDetails from "./components/Server/ServerDetails.vue";
 export default {
   components :{
     appHeader : Header, 
-    "app-footer" : Footer, //eger - kullanmazsak isimlendirmede tırnak kullanamamıza gerek yok , yukarıdaki gibi
+    "app-footer" : Footer, //eger - kullanmazsak isimlendirmede tırnak kullanamamıza gerek yok , yukarıdaki gibi, ama yine de component i yazarken - li yazabiliriz
     "app-servers" : Servers,
     "app-servers-details" : ServerDetails
   }
