@@ -9,10 +9,16 @@
         <hr>
         <p>{{selectedComponent}} </p>
         <hr>
+
+        <keep-alive>   <!-- sayesinde component tekrardan render edilmeyecek-->
+          
         <component :is = "selectedComponent">
           <h1 slot = "heading">Guzel Bir Gun</h1>
           <p slot = "content">Bu cok guzel bir aniydi...</p>
         </component>
+
+        </keep-alive>
+
 <!-- selectedComponent app-memory gibi seçicidir-->
         <!--<app-memory>
           <h1 slot = "heading">Guzel Bir Gun</h1>
