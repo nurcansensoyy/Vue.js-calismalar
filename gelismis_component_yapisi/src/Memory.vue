@@ -1,11 +1,11 @@
 <template>
   <div>
-    <p class="text-center"> {{content}}</p>
+    <slot></slot>
   </div>
 </template>
 <script>
 export default{
-  props : ["content"],
+  
 }
 </script>
 <style scoped>

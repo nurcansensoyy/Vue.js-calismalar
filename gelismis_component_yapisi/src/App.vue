@@ -2,7 +2,10 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
-        <app-memory content = "Bu çok güzel bir anıdır..."></app-memory>
+        <app-memory>
+          <h1>Guzel Bir Gun</h1>
+          <p>Bu cok guzel bir aniydi...</p>
+        </app-memory>
       </div>
     </div>
   </div>
