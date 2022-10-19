@@ -1,15 +1,16 @@
-<template>
+np<template>
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
                 <br>
-                <button class="btn btn-primary">Mavi Temayı Yükle</button>
-                <button class="btn btn-success">Yeşil Temayı Yükle</button>
-                <button class="btn btn-danger">Kırmızı Temayı Yükle </button>
+                <button @click = "selectedComponent = 'appBlue'" class="btn btn-primary">Mavi Temayı Yükle</button>
+                <button @click = "selectedComponent = 'appGreen'" class="btn btn-success">Yeşil Temayı Yükle</button>
+                <button @click = "selectedComponent = 'appRed'" class="btn btn-danger">Kirmizi Temayı Yukle</button>
                 <hr>
-                <app-blue></app-blue>
-                <app-green></app-green>
-                <app-red></app-red>
+                <component :is = "selectedComponent">
+                    <h1>{{selectedComponent}} Mavi</h1>
+                    <p>Sensoy</p>
+                </component>
             </div>
         </div>
     </div>
@@ -25,7 +26,12 @@
             appBlue: Blue,
             appGreen: Green,
             appRed: Red
+        },
+        data : function(){
+            return {
+            selectedComponent : "appBLue" 
         }
+    }
     }
 </script>
 
