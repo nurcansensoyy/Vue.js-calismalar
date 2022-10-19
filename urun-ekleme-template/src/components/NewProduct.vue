@@ -13,19 +13,19 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label>Ürün Adı</label>
-                        <input type="text" class="form-control" placeholder="adını giriniz">
+                        <input type="text"  v-model ="product.title"  class="form-control" placeholder="adını giriniz">
                     </div>
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label>Ürün Adeti</label>
-                            <input type="text" class="form-control" placeholder="adetini giriniz">
+                            <input type="text" v-model ="product.count"  class="form-control" placeholder="adetini giriniz">
                         </div>
                         <div class="form-group col-md-6">
                             <label>Ürün Fiyatı</label>
-                            <input type="text" class="form-control" placeholder="fiyatını giriniz">
+                            <input type="text"  v-model ="product.price" class="form-control" placeholder="fiyatını giriniz">
                         </div>
                     </div>
-                    <button class="btn btn-outline-info btn-block">Ekle!</button>
+                    <button @click="addProduct" class="btn btn-outline-info btn-block">Ekle!</button>
                 </div>
             </div>
         </div>
@@ -39,7 +39,8 @@ export default {
             product: {
                 title: null,
                 count: null,
-                price : null,
+                price: null,
+                totalPrice : null,
                 selectedImage: null
             }
         }
@@ -49,6 +50,9 @@ export default {
         onChange(e) {
             const file = e.target.files[0];
             this.product.selectedImage = URL.createObjectURL(file);
+        },
+        addProduct() {
+            this.product.totalPrice = this.product.count * this.product.price;
         }
     }
 }
