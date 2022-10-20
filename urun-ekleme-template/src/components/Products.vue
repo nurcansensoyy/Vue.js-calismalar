@@ -41,7 +41,7 @@ export default {
         eventBus.$on("productAdded", (product) => { //productAdded ı okuyor ve gelen product ı productList e ekliyor
             if (this.productList.length < 2) {
                 this.productList.push(product);
-                eventBus.$emit("progressBarUpdated",this.productList)
+                eventBus.$emit("progressBarUpdated",this.productList.length)
             } else {
                 console.log("Daha fazla ürün ekleyemezsiniz!!")
             }
