@@ -1,6 +1,6 @@
 <template>
     <div class="progress">
-        <div class="progress-bar bg-info" role="progressbar" style="width: 0%" aria-valuenow="50" aria-valuemin="0"
+        <div class="progress-bar bg-info" role="progressbar" :style="{width: progress + '%'}" aria-valuenow="50" aria-valuemin="0"
             aria-valuemax="100">
             {{currentItem}}/10 
             <!--0/10 yazan yerdeki 0 değişsin diye currentItem tanımladık ve dinamik olarak değişecek--> 
