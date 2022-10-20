@@ -1,4 +1,7 @@
 <template>
+<div v-if = "productList.length > 0">
+    <h3 class = "text-center">Eklenen Ürünlerin Listesi</h3>
+    <hr>
 <div class="row product-container">
     <app-product v-for = "product in productList" :key = {product}>
         <img class="card-img-top" :src="product.selectedImage" :alt="product.title">
@@ -18,7 +21,7 @@
         </div>
     </app-product>
     </div>
-
+</div>
 
 
 </template>

@@ -13,15 +13,15 @@ import eventBus from "../main";
 export default {
     data() {
         return {
-            currentItem: null,
-            progress : null, //
+            currentItem: 0,
+            progress : 0, //
         }
     },
     created() {
         eventBus.$on("progressBarUpdated", (productListCount) => {
             this.currentItem = productListCount; //0/10 yazan yere productList e eklenen kaddar ürünün sayı değeri gelecek
             this.progress = productListCount * 10;
-        })
+        });
     }
 }
 </script>
