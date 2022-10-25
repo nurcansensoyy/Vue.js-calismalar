@@ -29,7 +29,11 @@
               <div class="row">
                 <div class="col-md-12 form-group">
                   <label for="message">Açıklama</label><br>
-                  <textarea id="message" rows="3" class="form-control"></textarea>
+                  <textarea 
+                  v-model="userData.message"
+                  id="message" 
+                  rows="3" 
+                  class="form-control"><!--buraya {{userData.message}} yazarsak çalışmaz--></textarea>
                 </div>
               </div>
               <div class="row">
@@ -84,7 +88,7 @@
               <p>Kullanıcı Adı:{{userData.username}}</p>
               <p>Şifre:{{userData.password}}</p>
               <p>Yaş:{{userData.age}}</p>
-              <p>Açıklama: </p>
+              <p>Açıklama:{{userData.message}} </p>
               <p><strong>İlgi Alanları</strong></p>
               <ul>
                 <li></li>
@@ -107,7 +111,9 @@ export default {
       userData : {
       username: '',
       password: '',
-      age: 30,
+        age: 30,
+      message : ''
+      
       }
 
       }
