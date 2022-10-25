@@ -10,7 +10,7 @@
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <h3>Custom Directive</h3>
-        <p v-color="red">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur beatae culpa doloribus, ex
+        <p v-color>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur beatae culpa doloribus, ex
           facilis fugiat, fugit magni molestiae mollitia, nesciunt nihil perspiciatis quaerat quam quas ratione sequi
           unde ut!</p>
       </div>
