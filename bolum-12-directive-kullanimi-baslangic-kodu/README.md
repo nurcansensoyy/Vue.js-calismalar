@@ -1,10 +1,12 @@
 # directive-kullanimi
 
+# directiveler component ve elementlere işlemler yaptırmak için kullandığımız keywordler dir. bind,if,on,model gibi
+
 > A Vue.js project
 
 ## Build Setup
 
-``` bash
+```bash
 # install dependencies
 npm install
 
