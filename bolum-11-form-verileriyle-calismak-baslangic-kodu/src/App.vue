@@ -52,10 +52,10 @@
               <div class="row">
                 <div class="col-md-12 form-group">
                   <label>
-                    <input type="radio" value="erkek"> Erkek
+                    <input v-model="userData.gender" type="radio" value="erkek"> Erkek
                   </label>
                   <label>
-                    <input type="radio" value="kadin"> Kadın
+                    <input v-model="userData.gender" type="radio" value="kadin"> Kadın
                   </label>
                 </div>
               </div>
@@ -93,7 +93,7 @@
               <ul>
                 <li v-for="item in userData.interests " :key="item">{{item}}</li>
               </ul>
-              <p>Cinsiyet:</p>
+              <p>Cinsiyet:{{userData.gender}}</p>
               <p>Şehir:</p>
               <p>Toggle:</p>
             </div>
@@ -113,7 +113,8 @@ export default {
       password: '',
         age: 30,
         message: '',
-      interests : []
+        interests: [],
+      gender : ''
       
       }
 
