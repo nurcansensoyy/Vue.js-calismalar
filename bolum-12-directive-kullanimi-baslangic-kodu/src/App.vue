@@ -28,22 +28,18 @@ export default {
   directives: { //local olarak directive tanımlama
     "color": {
       bind(el, binding, vnode) {
+        let delay = 0;
         if (binding.modifiers["delay"]) {
-          setTimeout(() => {
-            if (binding.arg == "background") { //eğer background varsa arka planın rengi değişecek yoksa yazının rengi kırmızı olacak
-              el.style.backgroundColor = binding.value; //binding.value ile string veriyi aldık
-            } else {
-              el.style.color = binding.value;
-            }
-          }, 2000);
+          delay = 2000;
 
-        } else {
+        } 
+        setTimeout(() => {
           if (binding.arg == "background") { //eğer background varsa arka planın rengi değişecek yoksa yazının rengi kırmızı olacak
             el.style.backgroundColor = binding.value; //binding.value ile string veriyi aldık
           } else {
             el.style.color = binding.value;
           }
-        }
+        }, delay);
       }
       }
     }
