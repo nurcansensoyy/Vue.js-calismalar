@@ -3,7 +3,11 @@ import App from './App.vue'
 
 Vue.directive("color", {
   bind(el, binding, vnode) {
-    el.style.backgroundColor = 'red';
+    if (binding.arg == "background") { //eğer background varsa arka planın rengi değişecek yoksa yazının rengi kırmızı olacak
+          el.style.backgroundColor = binding.value; //binding.value ile string veriyi aldık
+    } else {
+      el.style.color = binding.value;
+    }
   }
 });
 
