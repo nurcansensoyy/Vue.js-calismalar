@@ -96,7 +96,7 @@
                 <li v-for="item in userData.interests " :key="item">{{item}}</li>
               </ul>
               <p>Cinsiyet:{{userData.gender}}</p>
-              <p>Şehir:{{userData.cities}}</p>
+              <p>Şehir:{{userData.selectedCity}}</p>
               <p>Toggle:</p>
             </div>
           </div>
@@ -117,7 +117,8 @@ export default {
         message: '',
         interests: [],
         gender: '',
-      cities : ["istanbul","ankara","adana","izmir","bursa",]
+        cities: ["istanbul", "ankara", "adana", "izmir", "bursa",],
+      selectedCity : ''
       
       }
 
