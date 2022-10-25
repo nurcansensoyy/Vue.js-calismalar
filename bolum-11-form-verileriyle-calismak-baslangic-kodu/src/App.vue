@@ -33,17 +33,17 @@
                   v-model="userData.message"
                   id="message" 
                   rows="3" 
-                  class="form-control"><!--buraya {{userData.message}} yazarsak çalışmaz--></textarea>
+                  class="form-control"><!--buraya userData.message yazarsak çalışmaz--></textarea>
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
                     <label>
-                      <input type="checkbox" value="yazilim"> Yazılım
+                      <input v-model="userData.interests" type="checkbox" value="yazilim"> Yazılım
                     </label>
                     <label>
-                      <input type="checkbox" value="donanim"> Donanım
+                      <input v-model="userData.interests" type="checkbox" value="donanim"> Donanım
                     </label>
                   </div>
 
@@ -91,7 +91,7 @@
               <p style="white-space: pre;">Açıklama:{{userData.message}} </p> <!--white-space:pre ile alt satıra geçme da gösterilir-->
               <p><strong>İlgi Alanları</strong></p>
               <ul>
-                <li></li>
+                <li v-for="item in userData.interests " :key="item">{{item}}</li>
               </ul>
               <p>Cinsiyet:</p>
               <p>Şehir:</p>
@@ -112,7 +112,8 @@ export default {
       username: '',
       password: '',
         age: 30,
-      message : ''
+        message: '',
+      interests : []
       
       }
 
