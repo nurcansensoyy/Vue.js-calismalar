@@ -63,7 +63,9 @@
                 <div class="col-md-12 from-group">
                   <label>Şehir</label>
                   <select class="form-control">
-                    <option></option>
+                    <option 
+                    :selected = "city == 'adana'" 
+                    v-for="city in userData.cities" :key="city">{{city}}</option><!--:selected ile default adana nın gelmesi sağlandı-->
                   </select>
                 </div>
               </div>
@@ -94,7 +96,7 @@
                 <li v-for="item in userData.interests " :key="item">{{item}}</li>
               </ul>
               <p>Cinsiyet:{{userData.gender}}</p>
-              <p>Şehir:</p>
+              <p>Şehir:{{userData.cities}}</p>
               <p>Toggle:</p>
             </div>
           </div>
@@ -114,7 +116,8 @@ export default {
         age: 30,
         message: '',
         interests: [],
-      gender : ''
+        gender: '',
+      cities : ["istanbul","ankara","adana","izmir","bursa",]
       
       }
 
