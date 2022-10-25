@@ -3,14 +3,14 @@
 <div>
 
   <div id ="on"
-  @click="isOn=true"
-  :class="{active : !isOn }">Kapalı
+  @click="switched(true)"
+  :class="{active : !value }">Açık
   </div>
 
   <div
   id="off"
-  @click = "isOn = false"
-  :class="{active : !isOn }">Kapalı
+  @click = "switched(false)"
+  :class="{active : !value }">Kapalı
   </div>
 
 </div>
@@ -19,13 +19,35 @@
 
 <script>
 export default {
-    data() {
-        isOn : true
-    }
+   
+    props: ["value"],//değerler value den geleceği için isOnları sildik value yazıcaz
+    methods:{
+        switched(isOn) {
+            this.$emit("input",isOn)
+        }
+    } 
 
 }
+
 </script>
 
-<style>
+<style scoped>
+#on, #off{
+    width: 50px;
+    height: 20px;
+    background-color: #eee;
+    padding: 2px;
+    display: inline-block;
+    margin: 10px -2px;
+    box-sizing: content-box;
+    cursor: pointer;
+    text-align: center;
+}
+#on:hover, #on.active{
+    background-color: lightgreen;
+}
+#off:hover, #off.active{
+    background-color: red;
+}
 
 </style>

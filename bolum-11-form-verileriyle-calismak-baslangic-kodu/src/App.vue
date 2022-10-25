@@ -14,7 +14,13 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <label for="email">Kullanıcı Adı</label>
-                    <input type="text" id="username" class="form-control" v-model="userData.username">
+                    <input
+                     type="text"
+                     id="username"
+                     class="form-control"
+                     :value="userData.username"
+                     @input="userData.username=$event.target.value"
+                    >
                   </div>
                   <div class="form-group">
                     <label for="password">Şifre</label>
@@ -69,10 +75,10 @@
                   </select>
                 </div>
               </div>
-              
+
               <div class = "row">
                 <div class="col-md-12 form-group">
-                  <app-switch></app-switch>
+                  <app-switch v-model="switched"></app-switch>
                 </div>
 
               </div>
@@ -80,15 +86,17 @@
               <div class="row">
                 <div class="col-md-12">
                   <button
+                  @click.prevent="submit" 
                     class="btn btn-primary">Gönder!
                   </button>
+                  <!--prevent ile göndere basıldığında bu formun server da başka bir yerre gönderilmesini durduruyoruz-->
                 </div>
               </div>
             </form>
           </div>
         </div>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6" v-if="isSubmitted">
           <div class="panel panel-info">
             <div class="panel-heading">
               <h4>Form Verileri</h4>
@@ -104,7 +112,7 @@
               </ul>
               <p>Cinsiyet:{{userData.gender}}</p>
               <p>Şehir:{{userData.selectedCity}}</p>
-              <p>Toggle:</p>
+              <p>Toggle:{{switched}}</p>
             </div>
           </div>
       </div>
@@ -114,7 +122,7 @@
 </template>
 
 <script>
-import Switch from '../Switch.vue';
+import Switch from '../Switch.vue'
 export default {
   components: {
     appSwitch : Switch
@@ -130,11 +138,18 @@ export default {
         gender: '',
         cities: ["istanbul", "ankara", "adana", "izmir", "bursa",],
       selectedCity : ''
-      
-      }
+      },
+     
+      switched: true,
+      isSubmitted : false
 
       }
+  },
+  methods: {
+    submit() {
+      this.isSubmitted = true;
     }
+  },
   }
 </script>
 
