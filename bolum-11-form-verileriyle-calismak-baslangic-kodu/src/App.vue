@@ -69,6 +69,13 @@
                   </select>
                 </div>
               </div>
+              
+              <div class = "row">
+                <div class="col-md-12 form-group">
+                  <app-switch></app-switch>
+                </div>
+
+              </div>
               <hr>
               <div class="row">
                 <div class="col-md-12">
@@ -107,7 +114,11 @@
 </template>
 
 <script>
+import Switch from '../Switch.vue';
 export default {
+  components: {
+    appSwitch : Switch
+  },
   data() {
     return {
       userData : {
