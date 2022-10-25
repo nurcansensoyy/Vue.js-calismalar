@@ -88,7 +88,7 @@
               <p>Kullanıcı Adı:{{userData.username}}</p>
               <p>Şifre:{{userData.password}}</p>
               <p>Yaş:{{userData.age}}</p>
-              <p>Açıklama:{{userData.message}} </p>
+              <p style="white-space: pre;">Açıklama:{{userData.message}} </p> <!--white-space:pre ile alt satıra geçme da gösterilir-->
               <p><strong>İlgi Alanları</strong></p>
               <ul>
                 <li></li>
