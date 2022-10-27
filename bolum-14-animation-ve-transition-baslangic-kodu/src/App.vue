@@ -13,7 +13,7 @@
         <button class="btn btn-primary" @click="show = !show">Kutuyu göster</button>
         <br><br>
 
-        <transition name = "activeEffect" appear> <!--appear kullanımı ile sayfa ilk açıldığında animasyonun tetiklenmesi sağlanır-->
+        <transition :name = "activeEffect" appear> <!--appear kullanımı ile sayfa ilk açıldığında animasyonun tetiklenmesi sağlanır-->
           <div class="alert alert-success" v-if="!show" >Bu bir alert kutusudur.</div>
         </transition>
         <hr>
@@ -35,20 +35,106 @@
           <div class="alert alert-success" v-if="show" key="success">Bu bir alert kutusudur.</div>
           <div class="alert alert-danger" v-else key="danger">Bu bir alert kutusudur.</div>
         </transition>
+        <hr>
+        <button class="btn btn-primary" @click="showJS = !showJS">Kutuyu göster</button>
+        <br><br>
+        
+        <transition 
+        @before-enter = "beforeEnter"
+        @enter="enter"
+        @after-enter="afterEnter"
+        @after-enter-cancelled="afterEnterCancelled"
+        @before-leave= "beforeLeave"
+        @leave="leave"
+        @after-leave="afteLeave"
+        @after-leave-cancelled="afterLeaveCancelled"
+        >
+          <div style="width:300px; background-color: #fbbd08; border:1px solid #666; width: 100px; height: 100px;" v-if="!showJS">Bu bir alert kutusudur.</div>
+        </transition>
+
+        <hr>
+        <h3>Dinamik Componentler Arasında Geçiş...</h3>
+        <button class="btn btn-danger" @click="appHome">Home</button>
+        <button class="btn btn-primary" @click="appPost">Post</button>
+        <br><br>
+        <transition>
+        <component :is="activeComponent" ></component>
+      </transition>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import Post from "./components/Post.vue";
+import Home from "./components/Home.vue";
 export default {
+  components: {
+    appPost: Post,
+    appHome : Home,
+
+  },
   data() {
     return {
       show: false,
-      activeEffect : "fade"
+      activeEffect: "fade",
+      showJS: false,
+      elementWidth: 100,
+      activeComponent: "appPost",
     }
-  }
+  },
+  methods: {
+    beforeEnter(el) {
+      console.log("beforeEnter");
+      this.elementWidth = 100;
+      el.style.width = this.elementWidth + "px";
+    },
+    enter(el,done) {
+      console.log("enter");
+      let round = 1;
+      const interval = setInterval(() => {
+        el.style.width = (this.elementWidth + round * 10) + "px";
+        round++;
+        if (round > 20) {
+          clearInterval(interval);
+          done();
+        }
+      }, 50);
+      done();
+    },
+    afterEnter() {
+      console.log("afterEnter");
+    },
+    afterEnterCancelled() {
+      console.log("afterEnterCancelled");
+    },
+    beforeLeave(el) {
+      console.log("beforeLeave");
+      this.elementWidth = 300;
+      el.style.width = this.elementWidth + "px";
+    },
+    leave(el,done) {
+      console.log("leave");
+      let round = 1;
+      const interval = setInterval(() => {
+        el.style.width = (this.elementWidth - round * 10) + "px";
+        round++;
+        if (round > 20) {
+          clearInterval(interval);
+          done();
+        }
+      }, 50);
+      
+    },
+    afterLeave() {
+      console.log("afterLeave");
+    },
+    afterLeaveCancelled() {
+      console.log("afterLeaveCancelled");
 
+    }
+
+  }
 }
 </script>
 
