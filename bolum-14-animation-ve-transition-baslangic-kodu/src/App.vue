@@ -4,15 +4,30 @@
       <div class="col-md-6 col-md-offset-3">
         <h3>Animation ve Transition</h3>
         <hr>
+<select class="form-control" v-model ="activeEffect"> 
+    <option value="fade">Fade</option>
+    <option value="slide">Slide</option>
+</select>
+<br>
+
         <button class="btn btn-primary" @click="show = !show">Kutuyu göster</button>
         <br><br>
 
-        <transition name = "fade">
-          <div class="alert alert-success" v-if="show">Bu bir alert kutusudur.</div>
+        <transition :name = "activeEffect" appear> <!--appear kullanımı ile sayfa ilk açıldığında animasyonun tetiklenmesi sağlanır-->
+          <div class="alert alert-success" v-if="!show" >Bu bir alert kutusudur.</div>
         </transition>
         <hr>
-        <transition name="slide" type="animation">
-          <div class="alert alert-warning" v-if="show">Bu bir alert kutusudur.</div>
+        <transition name="slide" type="animation" appear>
+          <div class="alert alert-warning" v-show ="!show" >Bu bir alert kutusudur.</div>
+        </transition>
+        <hr>
+        <transition 
+        enter-class=""
+        enter-active-class="animated shake"
+        leave-class=""
+        leave-active-class="animated swing"
+         appear>
+          <div class="alert alert-warning" v-show="!show">Bu bir alert kutusudur.</div>
         </transition>
       </div>
     </div>
@@ -23,7 +38,8 @@
 export default {
   data() {
     return {
-      show : false,
+      show: false,
+      activeEffect : "fade"
     }
   }
 
