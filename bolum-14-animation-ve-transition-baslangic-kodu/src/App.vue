@@ -4,7 +4,7 @@
       <div class="col-md-6 col-md-offset-3">
         <h3>Animation ve Transition</h3>
         <hr>
-<select class="form-control" v-model ="activeEffect"> 
+<select class="form-control" v-model ="activeEffect"> <!--activeEffect i model olarak aldık fade için aşağıda bind ettik böylece fade ya da slide seçimimize göre animasyonu belirledik.-->
     <option value="fade">Fade</option>
     <option value="slide">Slide</option>
 </select>
@@ -13,7 +13,7 @@
         <button class="btn btn-primary" @click="show = !show">Kutuyu göster</button>
         <br><br>
 
-        <transition :name = "activeEffect" appear> <!--appear kullanımı ile sayfa ilk açıldığında animasyonun tetiklenmesi sağlanır-->
+        <transition name = "activeEffect" appear> <!--appear kullanımı ile sayfa ilk açıldığında animasyonun tetiklenmesi sağlanır-->
           <div class="alert alert-success" v-if="!show" >Bu bir alert kutusudur.</div>
         </transition>
         <hr>
@@ -28,6 +28,12 @@
         leave-active-class="animated swing"
          appear>
           <div class="alert alert-warning" v-show="!show">Bu bir alert kutusudur.</div>
+        </transition>
+        <hr>
+        <transition name="fade" mode ="out-in" appear>
+          <!--appear kullanımı ile sayfa ilk açıldığında animasyonun tetiklenmesi sağlanır-->
+          <div class="alert alert-success" v-if="show" key="success">Bu bir alert kutusudur.</div>
+          <div class="alert alert-danger" v-else key="danger">Bu bir alert kutusudur.</div>
         </transition>
       </div>
     </div>
@@ -72,7 +78,7 @@ transition: opacity 0.5s;
 
 .slide-leave-active{
 animation: slide-out 1s ease-out forwards;
-transition: opacity 3s;
+transition: opacity 1s;
 opacity: 0;
 }
 
