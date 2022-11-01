@@ -7,6 +7,7 @@
           <input type="text" class="form-control"  v-model="username">
         </div>
         <button class="btn btn-primary" @click = "saveUser">Kaydet</button>
+        <button class="btn btn-success" @click="getUser">Verileri Getir</button>
       </div>
     </div>
   </div>
@@ -26,6 +27,12 @@ export default {
         .then((response) => {
           console.log(response);
         
+      })
+    },
+    getUser() {
+      this.$http.get("https://vuejs-vue-resource-d030f-default-rtdb.firebaseio.com/users.json")
+        .then((response) => {
+          console.log(response);
       })
    }
   }
