@@ -8,6 +8,10 @@
         </div>
         <button class="btn btn-primary" @click = "saveUser">Kaydet</button>
         <button class="btn btn-success" @click="getUser">Verileri Getir</button>
+        <hr>
+        <ul class="list-group">
+          <li class="lis-group-item" v-for = "user in userList" :key="user">{{user.username}}</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -17,7 +21,8 @@
 export default {
   data() {
     return {
-      username : null
+      username: null,
+      userList: [],
     }
   },
   methods: {
@@ -30,9 +35,19 @@ export default {
       })
     },
     getUser() {
-      this.$http.get("https://vuejs-vue-resource-d030f-default-rtdb.firebaseio.com/users.json")
+      this.$http.get("https://vuejs-vue-resource-d030f-default-rtdb.firebaseio.com/users.json") //GET ISLEMI
+
         .then((response) => {
-          console.log(response);
+         //console.log(response);
+
+          let data = response.data;//response.data verisi artık data içinde tutuluyor.
+
+          for (let key in data) {
+           // console.log(data[key]); //data içerisindeki key e denk gelen kaydı bana getir dedik
+            this.userList.push(data[key]); //data daki key e denk gelen objeyi userList array inin içine attık
+          }
+
+
       })
    }
   }
