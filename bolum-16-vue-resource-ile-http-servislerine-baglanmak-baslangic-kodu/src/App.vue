@@ -22,7 +22,7 @@ export default {
   methods: {
     saveUser() {
       
-      this.$http.post("https://vuejs-vue-resource-d030f-default-rtdb.firebaseio.com/users.json", { username: this.username })
+      this.$http.post("https://vuejs-vue-resource-d030f-default-rtdb.firebaseio.com/users.json", { username: this.username }) //POST ISLEMI
         .then((response) => {
           console.log(response);
         
