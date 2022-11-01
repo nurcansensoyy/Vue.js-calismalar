@@ -40,7 +40,10 @@ export default {
       this.$resource("users.json").save({}, { username: this.username });
     },
     getUser() {
-      this.$http.get("users.json") //GET ISLEMI
+
+      this.$resource("users.json").get()
+
+      // this.$http.get("users.json") //GET ISLEMI
 
         .then((response) => {
          //console.log(response);
@@ -58,7 +61,9 @@ export default {
           })
     },
     deleteUser(userKey) {
-      this.$http.delete("users/" + userKey + ".json")
+      // this.$http.delete("users/" + userKey + ".json")
+
+      this.$resource.delete("users/" + userKey + ".json")
     }
    
   }
