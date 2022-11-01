@@ -2,6 +2,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
+                <br>
+                <appHeader></appHeader>
+                <hr>
                 <router-view></router-view>
             </div>
         </div>
@@ -9,7 +12,11 @@
 </template>
 
 <script>
+import Header from "./components/Header.vue"
 export default {
+    components: {
+        appHeader: Header,
+}
 }
 </script>
 
