@@ -26,6 +26,7 @@ export default {
     return {
       username: null,
       userList: [],
+      resource : {}
     }
   },
   methods: {
@@ -37,7 +38,9 @@ export default {
 
       // })
 
-      this.$resource("users.json").save({}, { username: this.username });
+      //this.$resource("users.json").save({}, { username: this.username });
+
+      this.resource.kaydet({},{username : this.username})
     },
     getUser() {
 
@@ -66,6 +69,12 @@ export default {
       this.$resource.delete("users/" + userKey + ".json")
     }
    
+  },
+  created() {
+    const customActions = {
+      kaydet: { method: "POST", url: "users.json" }
+    };
+    this.resource = this.$resource("users.json",{},customActions) //kendimize ait request tanımladık
   }
 }
 </script>
