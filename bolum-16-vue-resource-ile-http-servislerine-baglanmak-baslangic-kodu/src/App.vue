@@ -10,7 +10,10 @@
         <button class="btn btn-success" @click="getUser">Verileri Getir</button>
         <hr>
         <ul class="list-group">
-          <li class="lis-group-item" v-for = "user in userList" :key="user">{{user.username}}</li>
+          <li class="lis-group-item" v-for = "user in userList" :key="user">
+          <span>{{user.data.username}}</span>
+          <button class="btn btn-xs btun-danger" @click="deleteUser(user.key)">Sil</button>
+        </li>
         </ul>
       </div>
     </div>
@@ -28,26 +31,35 @@ export default {
   methods: {
     saveUser() {
       
-      this.$http.post("", { username: this.username }) //POST ISLEMI
-        .then((response) => {
-          console.log(response);
-        
-      })
+      // this.$http.post("users.json", { username: this.username }) //POST ISLEMI
+      //   .then((response) => {
+      //     console.log(response);
+
+      // })
+
+      this.$resource("users.json").save({}, { username: this.username });
     },
     getUser() {
-      this.$http.get() //GET ISLEMI
+      this.$http.get("users.json") //GET ISLEMI
 
         .then((response) => {
          //console.log(response);
-
-          let data = response.data;//response.data verisi artık data içinde tutuluyor.
-
-          for (let key in data) { // firebase in yapısından dolayı böyle bir işlem yapmak durumunda kaldık
-           // console.log(data[key]); //data içerisindeki key e denk gelen kaydı bana getir dedik
-            this.userList.push(data[key]); //data daki key e denk gelen objeyi userList array inin içine attık
-          };
-      })
+          return response.json();
+            
+        }).then(data => {
+          for (let key in data.userList) {
+            this.userList.push(
+              {
+                key: key,
+                data: data.userList[key],
+              }
+              )
+            }
+          })
     },
+    deleteUser(userKey) {
+      this.$http.delete("users/" + userKey + ".json")
+    }
    
   }
 }
