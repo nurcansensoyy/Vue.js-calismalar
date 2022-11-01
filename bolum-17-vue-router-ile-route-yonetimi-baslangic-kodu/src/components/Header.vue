@@ -1,11 +1,18 @@
 <template>
   <ul class = "nav nav-pills">
     <router-link
+    active-class="active" 
     to ="/"
     tag = "li">
         <a>Home</a>
-    </router-link>
+    </router-link> 
+    <!--active-class home veya user a bastığımızda hangisinin seçili olduğunu belli etmek için kullanılır -->
+    
+    <!-- Router-link ile diyorum ki to ile gitmesi gereken yeri belirtiyorum
+    tag ile sonunda görünmesi gerekeni yani li olmasını istedik -->
+
     <router-link
+    active-class="active"
     to = "/user"
     tag = "li">
         <a>User</a>
