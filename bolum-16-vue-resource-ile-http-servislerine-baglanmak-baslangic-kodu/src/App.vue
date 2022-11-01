@@ -28,28 +28,27 @@ export default {
   methods: {
     saveUser() {
       
-      this.$http.post("https://vuejs-vue-resource-d030f-default-rtdb.firebaseio.com/users.json", { username: this.username }) //POST ISLEMI
+      this.$http.post("", { username: this.username }) //POST ISLEMI
         .then((response) => {
           console.log(response);
         
       })
     },
     getUser() {
-      this.$http.get("https://vuejs-vue-resource-d030f-default-rtdb.firebaseio.com/users.json") //GET ISLEMI
+      this.$http.get() //GET ISLEMI
 
         .then((response) => {
          //console.log(response);
 
           let data = response.data;//response.data verisi artık data içinde tutuluyor.
 
-          for (let key in data) {
+          for (let key in data) { // firebase in yapısından dolayı böyle bir işlem yapmak durumunda kaldık
            // console.log(data[key]); //data içerisindeki key e denk gelen kaydı bana getir dedik
             this.userList.push(data[key]); //data daki key e denk gelen objeyi userList array inin içine attık
-          }
-
-
+          };
       })
-   }
+    },
+   
   }
 }
 </script>
