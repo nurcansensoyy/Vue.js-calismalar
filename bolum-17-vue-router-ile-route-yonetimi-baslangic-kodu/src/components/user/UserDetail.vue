@@ -6,11 +6,26 @@
     <router-link
     tag="button"
     class="btn btn-primary"
-    :to="{name : 'userEdit', params : {id : $route.params.id}, query : {name : 'nurcan', lastName : 'sensoy'} }"
+    :to="navigationLink"
     >Kullanıcıyı Düzenle</router-link>
   
   </div>
 </template>
 <script>
-  export default {}
+export default {
+  data() {
+    return {
+      navigationLink: {
+        name: 'userEdit',
+        params: { id: this.$route.params.id },
+        query: { name: 'nurcan', lastName: 'sensoy' },
+        //hash : '#data'
+      }
+      }
+  },
+  beforeRouteEnter(to, from, next) {
+    console.log("Component seviyesinde kontrol");
+    next();
+    }
+  }
 </script>
