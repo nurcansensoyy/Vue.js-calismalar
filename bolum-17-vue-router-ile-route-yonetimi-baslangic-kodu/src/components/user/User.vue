@@ -27,6 +27,11 @@ export default {
       this.$router.push({ name: 'anasayfa' }) //3. yöntem
       //javascript üzerinden root lar arasında geçiş yaptık 3 farklı yöntemle
     }
+  },
+  watch: {
+    "$route"(to, from) { // to bizim değişen route umuzu verir, from değişmeden önceki route u veriyor ve burada id değişimini takip ederek user 1 ve 2 de id değişmesini sağlıyoruz
+        this.id = to.params.id
+      }
     }
   }
 </script>
