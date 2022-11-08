@@ -3,7 +3,6 @@
     <router-link
     active-class="active" 
     to ="/"
-    exact
     tag = "li">
         <a>Home</a>
     </router-link> 
