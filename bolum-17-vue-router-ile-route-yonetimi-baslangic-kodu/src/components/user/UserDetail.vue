@@ -2,16 +2,13 @@
   <div class="container">
     <h3>User Detail Component</h3>
     <hr>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, earum libero odit optio repellendus sed
-      soluta? Animi, atque blanditiis commodi consequatur distinctio dolorem eaque eos expedita, modi reprehenderit
-      repudiandae soluta.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, earum libero odit optio repellendus sed
-      soluta? Animi, atque blanditiis commodi consequatur distinctio dolorem eaque eos expedita, modi reprehenderit
-      repudiandae soluta.
-    </p>
+    <p>Kullanıcı ID Bilgisi : {{$route.params.id}}    </p>
+    <router-link
+    tag="button"
+    class="btn btn-primary"
+    :to="{name : 'userEdit', params : {id : $route.params.id}, query : {name : 'nurcan', lastName : 'sensoy'} }"
+    >Kullanıcıyı Düzenle</router-link>
+  
   </div>
 </template>
 <script>

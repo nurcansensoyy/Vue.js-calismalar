@@ -14,8 +14,8 @@
     <!-- Router-link ile diyorum ki to ile gitmesi gereken yeri belirtiyorum
     tag ile sonunda görünmesi gerekeni yani li olmasını istedik -->
 
-    <router-link active-class="active" to ="/user/1" tag ="li"> <a>User 1</a> </router-link> 
-    <router-link active-class="active" to="/user/2" tag="li"> <a>User 2</a> </router-link>
+    <router-link active-class="active" to ="/user" tag ="li"> <a>User</a> </router-link> 
+   
   </ul>
 </template>
 

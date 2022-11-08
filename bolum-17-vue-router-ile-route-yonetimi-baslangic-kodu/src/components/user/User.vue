@@ -1,13 +1,8 @@
 <template>
   <div class="container">
-    <h3>User Component</h3>
-    <hr>
-    <p>User ID : {{ id }}</p>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, earum libero odit optio repellendus sed
-      soluta? Animi, atque blanditiis commodi consequatur distinctio dolorem eaque eos expedita, modi reprehenderit
-      repudiandae soluta.
-    </p>
+   
+    <router-view></router-view> 
+    <!-- route da children tanımladığımız için router-view kullanmak zorundayız -->
     <hr>
     <button class="btn btn-success" @click="navigateToHome">Home Component</button>
   </div>
@@ -30,7 +25,7 @@ export default {
   },
   watch: {
     "$route"(to, from) { // to bizim değişen route umuzu verir, from değişmeden önceki route u veriyor ve burada id değişimini takip ederek user 1 ve 2 de id değişmesini sağlıyoruz
-        this.id = to.params.id
+      this.id = to.params.id;
       }
     }
   }
