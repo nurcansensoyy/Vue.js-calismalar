@@ -10,15 +10,13 @@
 import {mapGetters} from 'vuex'; //computed de kullanılır sürekli yeni method tanımlamayı engeller mapGetters store daki getters daki fonksiyonları getirir içine bir array ya da obje alır
 export default {
     // props: ["counter"],
-    computed: {
-        ...mapGetters({ //... kullanımı ile mapGetters ve computed ın kendi methodlarını beraber yazabilmiş olduk.
+    computed: 
+        mapGetters({ //... kullanımı ile mapGetters ve computed ın kendi methodlarını beraber yazabilmiş olduk.
             double: 'getDoubleCounter',
             stringC: 'stringCounter'
-        }),
-        customProp() {
-
-        }
-    }
+        })
+      
+    
 }
 
 </script> 

@@ -14,5 +14,13 @@ export const store = new Vuex.Store({
         stringCounter(state) {
             return state.counter + ".kez tıklandı."
         }
+    },
+    mutations: { //state in içerisinde bulunan verilerin değerini güncellemek için kullanılan fonksiyonlardan biridir.
+        increaseCounter(state) {
+            state.counter++;  //state in içindeki counter değerine value ile dışardan gelen value değerini ekle.
+        },
+        decreaseCounter(state) {
+            state.counter--;
+        }
     }
 });
