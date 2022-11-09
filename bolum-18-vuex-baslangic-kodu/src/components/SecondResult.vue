@@ -11,7 +11,7 @@ import {mapGetters} from 'vuex'; //computed de kullanılır sürekli yeni method
 export default {
     // props: ["counter"],
     computed: {
-        ...mapGetters({
+        ...mapGetters({ //... kullanımı ile mapGetters ve computed ın kendi methodlarını beraber yazabilmiş olduk.
             double: 'getDoubleCounter',
             stringC: 'stringCounter'
         }),
