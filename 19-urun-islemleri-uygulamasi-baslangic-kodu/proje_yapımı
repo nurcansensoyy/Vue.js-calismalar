@@ -1,0 +1,7 @@
+1) Component lerine ayırdık.
+2) Router işlemleri yaptık. Router ı indirdik. (router.js)
+3) Router ı main.js de import ettik.
+4) App.vue da Router-view ile Product olan componentlerin hepsini aldık.
+5) Router-link ile başlıktaki yerler arasında yönlendirme (navigation) işlemleri yaptık. Router-link burada li ve a yerine geçti. (Header.vue)
+6) Vuex işlemleri için vuex yükledik. Store klasörü oluşturduk. İçine bir product.js ekledik ve burada state,getters,mutations ve actions ekledik. 
+7) Store.js de store oluşturduk ve main.js de import ettik.
