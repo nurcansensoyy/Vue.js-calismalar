@@ -5,3 +5,33 @@
 5) Router-link ile başlıktaki yerler arasında yönlendirme (navigation) işlemleri yaptık. Router-link burada li ve a yerine geçti. (Header.vue)
 6) Vuex işlemleri için vuex yükledik. Store klasörü oluşturduk. İçine bir product.js ekledik ve burada state,getters,mutations ve actions ekledik. 
 7) Store.js de store oluşturduk ve main.js de import ettik.
+8) Store klasörü altında getters.js mutations.js ve actions.js dosyalarını açtık. store.js içinde import ettik.
+9) Vue-resource u indirdik ve main.js de import ettik. Projede kullanabilmek için vue.use ile tanımladık.
+10) Ürünün adı, adeti, fiyatı gibi değerlerin girilmesi için ProductPurchase de v-model işlemleri yaptık.
+11) Products.js içinde actions daki saveProduct ile firebase e bağlanıyoruz.
+12) Ürün listesinin güncellenmesi,Alış, satış, bakiye bilgilerinin güncellenmesi
+13) Alış, Satış ve Bakiye bilgilerinin Firebase üzerinden çekilmesi get işlemleri
+14) Butona basma ve kaydetme yönlendirme
+
+
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyDZtqFii4J8Z5_58VS4S6A4oH6sBSGWZUU",
+  authDomain: "urun-islemleri-prod-9d536.firebaseapp.com",
+  projectId: "urun-islemleri-prod-9d536",
+  storageBucket: "urun-islemleri-prod-9d536.appspot.com",
+  messagingSenderId: "491382221104",
+  appId: "1:491382221104:web:42cd46c692cc4a05a680f5",
+  measurementId: "G-85W273KX0N"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
