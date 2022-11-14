@@ -14,7 +14,7 @@
                         <th>Açıklama</th>
                     </thead>
                     <tbody>
-                        <tr v-for="product1 in getProducts" :key="product1">
+                        <tr v-for="product in getProducts" :key="product">
                             <td class="align-middle text-center"><span class="badge badge-info"> {{product.key}} </span>
                             </td>
                             <td class="align-middle text-center"> {{product.title}} </td>

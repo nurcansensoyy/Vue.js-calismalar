@@ -29,9 +29,9 @@ const actions = {//dış servislere bağlanırız. Dış işlemler yani asenkron
             .then(response => {
                 console.log(response.body)
                 let data = response.body;
-                for (let id in data) {
-                    data[id].id = id;
-                    commit("updateProductList", data[id]);
+                for (let x in data) {
+                    data[x].x = x;
+                    commit("updateProductList", data[x]);
                 }
         })
     },
@@ -52,7 +52,7 @@ const actions = {//dış servislere bağlanırız. Dış işlemler yani asenkron
         })
     },
     sellProduct({ commit }, payload) {
-       //Vue resource işlemleri 
+        Vue.http.patch("https://urun-islemleri-prod-9d536-default-rtdb.firebaseio.com/products/" + payload.key + ".json")
     }
 }
 
