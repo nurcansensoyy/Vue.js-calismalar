@@ -7,7 +7,7 @@ export const setTradeResult = ({ state, commit }, tradeResult) => {
         purchase: state.purchase,
         sale : state.sale
     }
-    Vue.http.put("https://urun-islemleri-prod-9d536-default-rtdb.firebaseio.com/products.json", tradeData)
+    Vue.http.put("https://urun-islemleri-prod-9d536-default-rtdb.firebaseio.com/trade-result.json", tradeData)
         .then(response => {
           
     })
@@ -15,7 +15,7 @@ export const setTradeResult = ({ state, commit }, tradeResult) => {
     
 }
 export const getTradeResult = ({commit}) => { //state içindeki verileri güncelleyeceğimiz için mutations a ihtiyaç var çağırırken de commit kullanılır.
-    Vue.http.get("https://urun-islemleri-prod-9d536-default-rtdb.firebaseio.com/products.json")
+    Vue.http.get("https://urun-islemleri-prod-9d536-default-rtdb.firebaseio.com/trade-result.json")
         .then(response => {
             console.log(response);
             commit("updateTradeResult",response.body)

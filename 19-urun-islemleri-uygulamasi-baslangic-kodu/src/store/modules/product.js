@@ -51,8 +51,26 @@ const actions = {//dış servislere bağlanırız. Dış işlemler yani asenkron
                 router.replace("/"); //eski dizinin yerini al
         })
     },
-    sellProduct({ commit }, payload) {
-        Vue.http.patch("https://urun-islemleri-prod-9d536-default-rtdb.firebaseio.com/products/" + payload.key + ".json")
+    sellProduct({ state,commit,dispatch }, payload) {
+        let product = state.products.filter(element => { // product taki değişiklik array olan products ta görünecek.
+            return element.key == payload.key;
+        })
+
+        if (product) {
+            //Z= X - Y
+            let totalCount = product[0].count - payload.count;
+            Vue.http.patch("https://urun-islemleri-prod-9d536-default-rtdb.firebaseio.com/products/" + payload.key + ".json", { count: totalCount })
+                .then(response => {
+                    product[0] = totalCount;
+                    let tradeResult = {
+                    purchase: 0,
+                    sale: product[0].price,
+                    count: payload.count
+                }
+                dispatch("setTradeResult", tradeResult)
+                router.replace("/"); //eski dizinin yerini al
+                })
+        }
     }
 }
 

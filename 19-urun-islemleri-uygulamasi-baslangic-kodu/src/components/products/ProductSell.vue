@@ -65,6 +65,17 @@ export default {
             this.$store.dispatch("sellProduct",product)
         }
 
+    },
+    beforeRouteLeave(to, from, next) {
+        if (this.selectedProduct !== null || this.product_count > 0) {
+            if (confirm("Kaydedilmemiş değişiklikler var yine de çıkmak istiyor musunuz?")) {
+                next();//geçişlere izin veriyor.
+            } else {
+                next(false);
+            }
+        } else {
+            next();
+        }
     }
 
 }
