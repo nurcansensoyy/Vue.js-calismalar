@@ -10,7 +10,9 @@ const getters = {
         return state.products;
     },
     getProduct(state) { //ürün çıkışında bir ürün seçildiğinde bilgi getirilmesi için
-        
+        return key => state.products.filter(element => {
+            return element.key == key;
+        })
     }
 }
 
@@ -22,7 +24,16 @@ const mutations = {
 
 const actions = {//dış servislere bağlanırız. Dış işlemler yani asenkron çalışma için gerekli. Mutations a aktarır.
     initApp({ commit }) {
-        //Vue resource işlemleri
+        Vue.http.get("https://urun-islemleri-prod-9d536-default-rtdb.firebaseio.com/products.json")
+        
+            .then(response => {
+                console.log(response.body)
+                let data = response.body;
+                for (let id in data) {
+                    data[id].id = id;
+                    commit("updateProductList", data[id]);
+                }
+        })
     },
     saveProduct({dispatch, commit,state}, product) {
         Vue.http.post("https://urun-islemleri-prod-9d536-default-rtdb.firebaseio.com/products.json", product)

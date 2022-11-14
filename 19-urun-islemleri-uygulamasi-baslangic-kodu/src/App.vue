@@ -20,7 +20,9 @@ export default {
     appFooter: Footer
   },
   created() {
-    this.$store.dispatch("getTradeResult")
+    this.$store.dispatch("getTradeResult");
+    this.$store.dispatch("initApp");
+  
   }
 }
 </script>

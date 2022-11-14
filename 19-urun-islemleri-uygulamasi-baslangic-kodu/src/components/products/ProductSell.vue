@@ -7,12 +7,10 @@
                 <hr>
                 <div class="form-group">
                     <label>Ürün Adı</label>
-                    <select class="form-control">
-                        <option value="1">Ürün 1</option>
-                        <option value="1">Ürün 2</option>
-                        <option value="1">Ürün 3</option>
-                        <option value="1">Ürün 4</option>
-                        <option value="1">Ürün 5</option>
+                    <select class="form-control" v-model="selectedProduct" @change="productSelected">
+                        <option 
+                        :value="product.key"
+                         v-for="product in getProducts" :key="product">{{product.title}}</option>  <!-- product isimlerini çıkış ekranında getirdik -->
                     </select>
                 </div>
                 <div class="card mb-2 border border-danger">
@@ -46,9 +44,25 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 export default {
+    data() {
+        return {
+            selectedProduct : null
+        }
+    },
+    computed: mapGetters(["getProducts"]),
+    methods: {
+        productSelected() {
+            console.log(this.selectedProduct);
+            let product = this.$store.getters.getProduct(this.selectedProduct);
+            console.log(product)
+
+        }
+    }
 
 }
+
 </script>
 
 <style scoped>
