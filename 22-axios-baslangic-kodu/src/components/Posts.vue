@@ -54,6 +54,20 @@
     </div>
   </div>
 </template>
+<script>
+import axios from "axios";
+
+export default {
+  created() {
+    axios.get("https://vuejs-axios-blog-331e0-default-rtdb.firebaseio.com/posts/-NGqXZ073NEcLh1vGb1p/posts.json")
+      .then(response => {
+        console.log(response);
+      })
+    .catch(e=>console.log(e))
+  }
+}
+</script>
+
 <style>
   .card {
     width: 300px;
