@@ -23,7 +23,7 @@ export default {
     }
   },
   created() {
-    axios.get("https://vuejs-axios-blog-331e0-default-rtdb.firebaseio.com/posts.json")
+    axios.get("/posts.json")
       .then(response => {
         let data = response.data;
         for (let key in data) {

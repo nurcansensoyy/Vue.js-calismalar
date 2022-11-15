@@ -45,7 +45,7 @@ export default {
     },
     methods : {
       onSubmit() {
-        axios.post("https://vuejs-axios-blog-331e0-default-rtdb.firebaseio.com/posts.json", { ...this.post, updatedDate: new Date() })
+        axios.post("posts.json", { ...this.post, updatedDate: new Date() })
           .then(response => {
             console.log(response)
           })
