@@ -45,8 +45,14 @@ import axios from 'axios';
         },
         methods: {
             onSubmit() {
+                let authLink = "https://identitytoolkit.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key="
+
+                if (this.isUser) {
+                    authLink ="https://identitytoolkit.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key="
+                }
+                
                 axios.post(
-                    "https://identitytoolkit.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyBej7mlLxlzRUqwS8u4HT_PgKM-ndDpXDY",
+                    authLink + "AIzaSyBej7mlLxlzRUqwS8u4HT_PgKM-ndDpXDY",
                     { email: this.user.email, password: this.user.password, returnSecureToken: true }
                 ).then(response => {
                     console.log(response)
