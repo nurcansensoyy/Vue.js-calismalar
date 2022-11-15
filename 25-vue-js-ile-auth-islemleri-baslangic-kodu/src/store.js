@@ -3,7 +3,7 @@ import Vuex from 'vuex';
 
 Vue.use(Vuex);
 
-const store = new Vuex.store({
+const store = new Vuex.Store({
     state: {
         token: "",
         fbAPIKey: "AIzaSyBej7mlLxlzRUqwS8u4HT_PgKM-ndDpXDY"

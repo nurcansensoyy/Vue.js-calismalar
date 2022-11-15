@@ -32,6 +32,7 @@
     </div>
 </template>
 <script>
+import axios from 'axios';
     export default {
         data() {
             return {
@@ -44,7 +45,12 @@
         },
         methods: {
             onSubmit() {
-                alert(this.user)
+                axios.post(
+                    "https://identitytoolkit.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyBej7mlLxlzRUqwS8u4HT_PgKM-ndDpXDY",
+                    { email: this.user.email, password: this.user.password, returnSecureToken: true }
+                ).then(response => {
+                    console.log(response)
+                })
             }
         }
     }
