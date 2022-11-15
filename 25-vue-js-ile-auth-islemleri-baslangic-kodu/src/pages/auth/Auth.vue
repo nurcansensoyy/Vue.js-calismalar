@@ -46,7 +46,9 @@ import axios from 'axios';
         methods: {
             onSubmit() {
                 this.$store.dispatch("login", {...this.user, isUser: this.isUser })//...this.user diyince email ve password ü ayrı ayrı almamıza gerek kalmaz.
-                
+                    .then(response => {
+                    this.$router.push("/")
+                })
             }
         }
     }

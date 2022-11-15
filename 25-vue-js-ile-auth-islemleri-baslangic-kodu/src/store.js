@@ -40,7 +40,9 @@ const store = new Vuex.Store({
         }
     },
     getters: {
-
+        isAuthenticated(state) {
+            return state.token !== ""
+        }
     }
 })
 
