@@ -45,18 +45,8 @@ import axios from 'axios';
         },
         methods: {
             onSubmit() {
-                let authLink = "https://identitytoolkit.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key="
-
-                if (this.isUser) {
-                    authLink ="https://identitytoolkit.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key="
-                }
+                this.$store.dispatch("login", {...this.user, isUser: this.isUser })//...this.user diyince email ve password ü ayrı ayrı almamıza gerek kalmaz.
                 
-                axios.post(
-                    authLink + "AIzaSyBej7mlLxlzRUqwS8u4HT_PgKM-ndDpXDY",
-                    { email: this.user.email, password: this.user.password, returnSecureToken: true }
-                ).then(response => {
-                    console.log(response)
-                })
             }
         }
     }
