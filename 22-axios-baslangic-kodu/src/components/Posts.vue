@@ -14,8 +14,8 @@
     </div>
 </template>
 <script>
-import axios from "axios";
-
+//import axios from "axios";
+import customAxios from "../custom_axios"; // axios yerine bunu kullanıcaz artık
 export default {
   data() {
     return {
@@ -23,7 +23,7 @@ export default {
     }
   },
   created() {
-    axios.get("/posts.json")
+    customAxios.get("/posts.json")
       .then(response => {
         let data = response.data;
         for (let key in data) {
