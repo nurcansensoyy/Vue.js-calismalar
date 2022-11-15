@@ -30,10 +30,10 @@ const store = new Vuex.Store({
                     authLink + "AIzaSyBej7mlLxlzRUqwS8u4HT_PgKM-ndDpXDY",
                     { email: authData.email, password: authData.password, returnSecureToken: true }
                 ).then(response => {
-                    commit("setToken",response.data.idToken)
-                }).catch(e => {
-                    console.log(e)
+                    commit("setToken", response.data.idToken)
+                    localStorage.setItem("token",response.data.idToken)
                 })
+         
         },
         logout({ commit, state, dispatch }) {
             commit("clearToken")
