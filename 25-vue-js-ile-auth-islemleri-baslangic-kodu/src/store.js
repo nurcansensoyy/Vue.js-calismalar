@@ -30,7 +30,7 @@ const store = new Vuex.Store({
                     authLink + "AIzaSyBej7mlLxlzRUqwS8u4HT_PgKM-ndDpXDY",
                     { email: authData.email, password: authData.password, returnSecureToken: true }
                 ).then(response => {
-                    console.log(response)
+                    commit("setToken",response.data.idToken)
                 }).catch(e => {
                     console.log(e)
                 })
