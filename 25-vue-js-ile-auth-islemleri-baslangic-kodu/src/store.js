@@ -36,7 +36,7 @@ const store = new Vuex.Store({
                 })
         },
         logout({ commit, state, dispatch }) {
-            
+            commit("clearToken")
         }
     },
     getters: {
