@@ -31,7 +31,10 @@ const store = new Vuex.Store({
                     console.log("token süresi geçmiş")
                     dispatch("logout")
                 } else {
-                    commit("setToken", token)
+                    commit("setToken", token) 
+                    let timerSecond = +expirationDate - time
+                    console.log(timerSecond)
+                    dispatch("setTimeoutTimer",timerSecond)
                     router.push("/")
                     
                 }
@@ -58,9 +61,9 @@ const store = new Vuex.Store({
                     localStorage.setItem("token", response.data.idToken)
                     localStorage.setItem("expirationDate",new Date().getTime() + +response.data.expireIn * 1000)
 
-                    localStorage.setItem("expirationDate",new Date().getTime() + 5000)
-                    //dispatch("setTimeoutTimer", +response.data.expireIn * 1000)
-                    dispatch("setTimeoutTimer", 5000)
+                    localStorage.setItem("expirationDate",new Date().getTime() + 10000)
+                   dispatch("setTimeoutTimer", +response.data.expireIn * 1000)
+                    dispatch("setTimeoutTimer", 10000)
                 })
          
         },
