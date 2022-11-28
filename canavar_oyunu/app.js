@@ -23,11 +23,8 @@ new Vue({
     },
     attack : function(){
         var point = Math.ceil(Math.random()* this.attack_multiple); //math.ceil ile virgülsüz değer alırız 
-        //this.monster_heal = this.monster_heal - point;
         this.monster_heal -= point;
-
         this.add_to_log({turn : "p", text : this.log_text.attack + point});
-
         this.monster_attack(); //oyuncu her saldırdığında monster da ona saldırmalı.
     },
     special_attack : function(){
@@ -40,11 +37,8 @@ new Vue({
     },
     heal_up : function(){ //İLK YARDIM
         var point = Math.ceil(Math.random()* this.heal_up_multiple); //math.ceil ile virgülsüz değer alırız 
-        //this.monster_heal = this.monster_heal - point;
         this.player_heal += point;
-
         this.add_to_log({turn : "p", text : this.log_text.heal_up + point});
-
         this.monster_attack();
     },
     give_up : function(){ //PES ET
@@ -54,7 +48,6 @@ new Vue({
     monster_attack : function() {
         var point = Math.ceil(Math.random()* this.monster_attack_multiple); 
         this.player_heal -= point;
-
         this.add_to_log({turn : "m" ,text : this.log_text.monster_attack + point});
     },
     add_to_log : function(log){
@@ -62,11 +55,10 @@ new Vue({
     }
    },
    watch : { //watch ile canlarını kontrol ettik
-
     player_heal : function(value){ //value burada player_heal ın aktif değişen değeridir 3 se3 5 se 5 
         if (this.player_heal <= 0){
             this.player_heal = 0;
-            
+
             if(confirm("Oyunu KAYBETTİN. Tekrar denemek ister misin?")){
                 this.player_heal = 100;
                 this.monster_heal = 100;
@@ -77,7 +69,6 @@ new Vue({
             this.player_heal = 100;
         }
     },
-
     monster_heal : function(value){ //value burada monster_heal ın aktif değişen değeridir 3 se3 5 se 5 
         if (this.monster_heal <= 0){
             this.monster_heal= 0;
@@ -86,8 +77,7 @@ new Vue({
                 this.player_heal = 100;
                 this.monster_heal = 100;
                 this.logs = [];
-            }
-            
+            }     
         }
    },
    },
